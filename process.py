@@ -11,4 +11,8 @@ if __name__ == "__main__":
     dialogue = [row['text'] for file in files for row in file['log']]
 
     random.seed(42)
-    pprint(random.sample(dialogue, 10))
+    sample = random.sample(dialogue, 25)
+
+    pprint(sample)
+    with open("dialogue.txt", "w") as f:
+        f.writelines([line + "\n" for line in sample])
